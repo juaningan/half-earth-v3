@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 
 import Checkbox from './checkbox';
 import styles from './checkbox-group-styles.module.scss';
@@ -10,6 +11,7 @@ const CheckboxGroup = ({ options, theme, checkedOptions, handleClick }) => {
     const isChecked = e.target.checked;
     checkedOptions[item] = isChecked;
     handleClick(checkedOptions, option);
+    
   }
 
   return (

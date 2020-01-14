@@ -24,6 +24,7 @@ import FeaturedMapsList from 'components/featured-maps-list';
 import TutorialModal from 'components/tutorial/tutorial-modal';
 import MenuFooter from 'components/mobile-only/menu-footer';
 import MenuSettings from 'components/mobile-only/menu-settings';
+import InfoTooltip from 'components/info-tooltip';
 
 import uiStyles from 'styles/ui.module.scss';
 
@@ -158,6 +159,7 @@ const DataGlobeComponent = ({
           rasters={rasters}
         />
         <TutorialModal />
+        {!isOnMobile && <InfoTooltip />}
       </Scene>
       <FeaturedMapsList
         selectedSidebar={selectedSidebar}

@@ -30,14 +30,11 @@ const Checkbox = ({ option, onChange, checked, theme, handleInfoClick }) => {
         <InfoIcon
           className={styles.icon}
           onClick={() => handleInfoClick(option)}
-          data-tip
-          data-for='infoLayerCheckboxButtonId'
+          data-tip='Click to read the info of this layer'
+          data-for='infoTooltip'
           data-effect='solid'
           data-delay-show={0}
         />
-        <ReactTooltip id='infoLayerCheckboxButtonId' className='infoTooltipStyle'>
-          Click to read the info of this layer
-        </ReactTooltip>
       </>
       )}
     </div>

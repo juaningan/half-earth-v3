@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import setSpeciesActions from 'redux_modules/species';
+import ReactTooltip from 'react-tooltip';
 import SpeciesWidgetComponent from './species-widget-component';
 import mapStateToProps from './species-widget-selectors';
 import { loadModules } from 'esri-loader';
@@ -52,6 +53,8 @@ const SpeciesWidget = ({ setSpeciesData, terrestrialCellData, data, changeGlobe,
     speciesLayer.queryFeatures(query).then(function(results){
       const { features } = results;
       setSpeciesData({ data: features.map(c => c.attributes), loading: false });
+      ReactTooltip.rebuild();
+      console.log('SPECIES: ReactTooltip.rebuil
     });
   };
 

@@ -64,8 +64,8 @@ const RadioGroup = ({ activeLayers, options, title, handleSimpleLayerToggle, han
           <InfoIcon
             className={styles.icon}
             onClick={() => handleInfoClick(option, variant)}
-            data-tip
-            data-for='infoLayerButtonId'
+            data-tip='Click to read the info of this layer'
+            data-for='infoTooltip'
             data-effect='solid'
             data-delay-show={0}
           />
@@ -78,9 +78,6 @@ const RadioGroup = ({ activeLayers, options, title, handleSimpleLayerToggle, han
             </span>
             <SwitchIcon className={cx({ [styles.reverseSwitchIcon]: !isRarityActive })} />
           </button>
-          <ReactTooltip id='infoLayerButtonId' className='infoTooltipStyle'>
-            Click to read the info of this layer
-          </ReactTooltip>
         </div>
       )}
     </div>

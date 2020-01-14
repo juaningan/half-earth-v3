@@ -1,6 +1,5 @@
 
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import { ReactComponent as ArrowIcon } from 'icons/arrow_right.svg';
 import speciesPlaceholder from 'images/speciesPlaceholder.svg';
 import DummyBlurWorkaround from 'components/dummy-blur-workaround';
@@ -21,8 +20,8 @@ const SpeciesChartDot = ({ species, selectedSpecies, handleSelectSpecies }) => {
           left: isSelected ? pointCoordinates.x - 5: pointCoordinates.x,
           backgroundColor: !isSelected && color
         }}
-        data-tip
-        data-for={name}
+        data-tip={name}
+        data-for='infoTooltip'
         data-effect='solid'
         data-delay-show={0}
         onClick={() => handleSelectSpecies(species)}
@@ -32,9 +31,6 @@ const SpeciesChartDot = ({ species, selectedSpecies, handleSelectSpecies }) => {
           style={{ backgroundColor: isSelected && color }}
         />
       </div>
-      <ReactTooltip id={name} className='infoTooltipStyle'>
-        {name}
-      </ReactTooltip>
     </>
   )
 };

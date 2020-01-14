@@ -18,6 +18,7 @@ import MenuSettings from 'components/mobile-only/menu-settings';
 import Slider from 'components/slider';
 import { MobileOnly, isMobile } from 'constants/responsive';
 import About from 'components/about';
+import InfoTooltip from 'components/info-tooltip';
 
 const InfoModal = loadable(() => import('components/modal-metadata'));
 const GridLayer = loadable(() => import('components/grid-layer'));
@@ -100,9 +101,10 @@ const DataGlobeComponent = ({
         {isLandscapeMode && <GridLayer handleGlobeUpdating={handleGlobeUpdating}/>}
         {isLandscapeMode && <TerrainExaggerationLayer exaggeration={3}/>}
         {isLandscapeMode && <LabelsLayer />}
-        {isLandscapeMode && <ProtectedAreasTooltips activeLayers={activeLayers} isLandscapeMode={isLandscapeMode} />}
+        {isLandscapeMode && <ProtectedAreasTooltips activeLayers={activeLayers} isLandscapeMode={isLandscapeMode}/>}
       </Scene>
       <TutorialModal />
+      {!isOnMobile && <InfoTooltip activeLayers={activeLayers} rasters={rasters} activeCategory={activeCategory}/>}
       {hasMetadata && <InfoModal />}
       {!isOnMobile && <About />}
     </>
