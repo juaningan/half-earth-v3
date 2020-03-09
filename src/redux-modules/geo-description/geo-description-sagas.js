@@ -19,7 +19,8 @@ function* fetchGeodescriberData() {
   let geoJSON;
   const state = yield select();
   const { gridCellData: { geometry} } = state;
-  const cancelSource = axios.CancelToken.source()
+  const CancelToken = axios.CancelToken;
+  const cancelSource = CancelToken.source();
   yield loadModules(["esri/geometry/support/webMercatorUtils"])
     .then(([webMercatorUtils]) => {
       // create geoJson (needed for geodescriber request)
@@ -29,23 +30,24 @@ function* fetchGeodescriberData() {
 
   try {
     yield put(SET_GEO_DESCRIPTION_LOADING());
-
-    const response = yield fetch(REACT_APP_GEO_DESCRIBER_API, {
+    const response = yield axios( {
+      url: `${REACT_APP_GEO_DESCRIBER_API}`,
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
       },
-      body: geoJSON
+      cancelToken: cancelSource.token,
+      data: geoJSON
     });
-    const data = yield response.json();
-    // Trigger species ready action
-    yield put(SET_GEO_DESCRIPTION_READY(data))
+    const data = yield response.data;
+    yield put(SET_GEO_DESCRIPTION_READY(data));
   } catch (error) {
     yield put(SET_GEO_DESCRIPTION_ERROR(error));
   } finally {
     if (yield cancelled()) {
       // Cancel the fetch whenever the takeLatest send a new action
-      yield call(cancelSource.cancel)
+      console.log('CANCELLED')
+      yield call(cancelSource.cancel())
     }
   }
 }
