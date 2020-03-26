@@ -36,9 +36,9 @@ const CountryBorderLayer = props => {
       .then(async function(results){
         const { features } = results;
         const { geometry } = features[0];
+        view.goTo(geometry);
         const borderPolygon = await createPolygonGeometry(geometry);
         if (border) { border.geometry = borderPolygon };
-        view.goTo(geometry);
       })
       .catch((error) => {
         console.warn(error);
