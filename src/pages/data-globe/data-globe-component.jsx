@@ -51,7 +51,8 @@ const DataGlobeComponent = ({
   countryISO,
   countryName,
   sceneMode,
-  isCountryMode
+  isCountryMode,
+  countryExtent
 }) => {
   
   const isOnMobile = isMobile();
@@ -64,6 +65,7 @@ const DataGlobeComponent = ({
         loaderOptions={{ url: `https://js.arcgis.com/${API_VERSION}` }}
         onMapLoad={(map) => handleMapLoad(map, activeLayers)}
         sceneMode={sceneMode}
+        countryExtent={countryExtent}
       >
         {isGlobeUpdating && <Spinner floating />}
         <MobileOnly>
@@ -114,7 +116,7 @@ const DataGlobeComponent = ({
         <CountryBorderLayer countryISO={countryISO}/>
         {isCountryMode && <LocalSceneSidebar countryISO={countryISO} />}
         {isLandscapeMode && <GridLayer handleGlobeUpdating={handleGlobeUpdating}/>}
-        {isLandscapeMode && <TerrainExaggerationLayer exaggeration={3}/>}
+        {(isLandscapeMode || sceneMode === 'local') && <TerrainExaggerationLayer exaggeration={sceneMode === 'local' ? 20 : 3}/>}
         {isLandscapeMode && <LabelsLayer />}
         {isLandscapeMode && <ProtectedAreasTooltips activeLayers={activeLayers} isLandscapeMode={isLandscapeMode} />}
       </DoubleScene>

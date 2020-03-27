@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import * as actions from 'actions/url-actions';
 import Component from './country-entry-card-component';
 
-const ToggleSceneWidget = props => {
+const CountryEntryCard = props => {
   const { changeUI, changeGlobe, sceneMode } = props;
-  const handleSceneModeChange = () => {
-    changeUI({ sceneMode: sceneMode === 'global' ? 'local' : 'global', selectedCountry: true });
-  }
+  const handleSceneModeChange = () => changeUI({ sceneMode: sceneMode === 'global' ? 'local' : 'global' });
   const handleCountryDeselect = () => changeGlobe({ countryISO: null, countryName: null });
 
   return (
@@ -19,4 +17,4 @@ const ToggleSceneWidget = props => {
   );
 }
 
-export default connect(null, actions)(ToggleSceneWidget);
+export default connect(null, actions)(CountryEntryCard);
