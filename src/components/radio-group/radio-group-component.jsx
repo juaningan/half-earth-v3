@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ReactTooltip from 'react-tooltip';
@@ -99,7 +99,7 @@ const RadioGroup = ({ activeLayers, options, title, handleSimpleLayerToggle, han
             {renderRadioButton(option)}
           </Tutorial>
         ) : (
-          <>{renderRadioButton(option)}</>
+          <Fragment key={option.value}>{renderRadioButton(option)}</Fragment>
         )
       ))}
     </>
