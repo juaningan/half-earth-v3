@@ -38,6 +38,7 @@ const DataGlobeSidebarComponent = ({
               subcategories={cat.subcategories}
               options={cat.taxa}
               activeLayers={activeLayers}
+              map={map}
             />
           ))
         )}
@@ -45,6 +46,7 @@ const DataGlobeSidebarComponent = ({
           <HumanImpactLayers
             activeLayers={activeLayers}
             handleGlobeUpdating={handleGlobeUpdating}
+            map={map}
           />
         )}
         {isProtectedAreasActive && (
@@ -52,6 +54,7 @@ const DataGlobeSidebarComponent = ({
             handleGlobeUpdating={handleGlobeUpdating}
             activeLayers={activeLayers}
             activeCategory={activeCategory}
+            map={map}
           />
         )}
       </Sidebar>

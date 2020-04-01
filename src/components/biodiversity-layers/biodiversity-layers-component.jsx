@@ -12,7 +12,8 @@ const BiodiversityLayers = ({
   subcategories,
   handleSimpleLayerToggle,
   handleExclusiveLayerToggle,
-  isFullscreenActive
+  isFullscreenActive,
+  map
 }) => {
 
   return (
@@ -30,6 +31,7 @@ const BiodiversityLayers = ({
             handleExclusiveLayerToggle={handleExclusiveLayerToggle}
             handleSimpleLayerToggle={handleSimpleLayerToggle}
             isFullscreenActive={isFullscreenActive}
+            map={map}
           />
         </div>
       ) : (
@@ -50,6 +52,7 @@ const BiodiversityLayers = ({
                     handleExclusiveLayerToggle={handleExclusiveLayerToggle}
                     handleSimpleLayerToggle={handleSimpleLayerToggle}
                     isFullscreenActive={isFullscreenActive}
+                    map={map}
                   />
                 </div>
               </div>
