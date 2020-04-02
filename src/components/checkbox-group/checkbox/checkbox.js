@@ -8,9 +8,10 @@ const actions = { ...metadataActions, openLayerInfoModalAnalyticsEvent };
 
 const CheckboxContainer = props => {
 
-  const handleInfoClick = (option) => {
+  const handleInfoClick = (option, map) => {
     const { setModalMetadata, openLayerInfoModalAnalyticsEvent } = props;
     setModalMetadata({
+      map,
       slug: `${option.slug}`,
       title: `${option.name} metadata`,
       isOpen: true

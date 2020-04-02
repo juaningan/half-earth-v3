@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Checkbox from './checkbox';
 import styles from './checkbox-group-styles.module.scss';
 
-const CheckboxGroup = ({ options, theme, checkedOptions, handleClick }) => {
+const CheckboxGroup = ({ options, theme, checkedOptions, handleClick, map }) => {
   const handleChange = (e, option) => {
     const item = option.value;
     const isChecked = e.target.checked;
@@ -16,7 +16,7 @@ const CheckboxGroup = ({ options, theme, checkedOptions, handleClick }) => {
     <div className={styles.container}>
       {options.map(option => {
         return (
-          <Checkbox key={option.name} option={option} theme={theme[option.theme]} checked={checkedOptions[option.value]} onChange={handleChange} />
+          <Checkbox key={option.name} map={map} option={option} theme={theme[option.theme]} checked={checkedOptions[option.value]} onChange={handleChange} />
         )
       })}
     </div>

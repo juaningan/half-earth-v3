@@ -7,7 +7,7 @@ import { ReactComponent as InfoIcon } from 'icons/info.svg';
 
 import styles from './checkbox-styles.module.scss';
 
-const Checkbox = ({ option, onChange, checked, theme, handleInfoClick }) => {
+const Checkbox = ({ option, onChange, checked, theme, handleInfoClick, map }) => {
   return (
     <div key={option.name} className={cx(
       styles.checkboxWrapper,
@@ -29,7 +29,7 @@ const Checkbox = ({ option, onChange, checked, theme, handleInfoClick }) => {
       <>
         <InfoIcon
           className={styles.icon}
-          onClick={() => handleInfoClick(option)}
+          onClick={() => handleInfoClick(option, map)}
           data-tip
           data-for='infoLayerCheckboxButtonId'
           data-effect='solid'
