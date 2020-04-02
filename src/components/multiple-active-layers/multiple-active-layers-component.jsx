@@ -5,7 +5,7 @@ import CheckboxGroup from 'components/checkbox-group';
 
 import styles from './multiple-active-layers-styles.module.scss';
 
-const MultipleActiveLayers = ({ title, description, options, handleClick, theme, alreadyChecked }) => {
+const MultipleActiveLayers = ({ title, description, options, handleClick, theme, alreadyChecked, map }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleSection}>
@@ -16,7 +16,8 @@ const MultipleActiveLayers = ({ title, description, options, handleClick, theme,
         handleClick={handleClick}
         checkedOptions={alreadyChecked}
         options={options}
-        theme={theme} 
+        theme={theme}
+        map={map}
       />
     </div>
   )}

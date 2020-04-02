@@ -26,6 +26,7 @@ const HumanImpactLayers = ({ alreadyChecked, map, activeLayers, addLayerAnalytic
       handleClick={toggleLayer}
       title='Land use pressures'
       description='Human pressures causing habitat loss and accelerating species extinction.'
+      map={map}
     />
   )}
 

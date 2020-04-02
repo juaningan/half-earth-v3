@@ -10,8 +10,9 @@ const actions = { ...metadataActions, openLayerInfoModalAnalyticsEvent };
 const RadioGroupContainer = props => {
 
   const handleInfoClick = (layer,option) => {
-    const { setModalMetadata, openLayerInfoModalAnalyticsEvent } = props;
+    const { setModalMetadata, openLayerInfoModalAnalyticsEvent, map } = props;
     setModalMetadata({
+      map,
       slug: `${layer.layers[option]}`,
       title: `${capitalize(layer.name)} ${option} metadata`,
       isOpen: true

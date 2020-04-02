@@ -41,8 +41,9 @@ const LegendContainer = props => {
   }
 
   const handleInfoClick = layer => {
-    const { setModalMetadata, openLayerInfoModalAnalyticsEvent } = props;
+    const { setModalMetadata, openLayerInfoModalAnalyticsEvent, map } = props;
     setModalMetadata({
+      map,
       slug: getSlug(layer),
       title: `${layer.legendConfig.title} metadata`,
       isOpen: true
